@@ -1,0 +1,5 @@
+user@ubuntu:~/CSA09-192525413-Assignment4/Task06$ java -Xmx1g -cp bin ui.Bench
+Rows in data source: 100003   (source: in-memory stand-in)
+ALL AT ONCE :     37.9 ms | rows in table model 100,003 | retained heap ~ 9 MB
+PAGINATED   :     0.04 ms per page (avg of 5, worst 0.09) | rows in table model 50 | retained heap ~ 0 MB
+LAST PAGE   :     5.31 ms  (OFFSET 99900)

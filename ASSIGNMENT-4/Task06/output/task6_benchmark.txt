@@ -1,0 +1,4 @@
+Rows in data source: 100003   (source: in-memory stand-in)
+ALL AT ONCE :     38.2 ms | rows in table model 100,003 | retained heap ~ 9 MB
+PAGINATED   :     0.05 ms per page (avg of 5, worst 0.14) | rows in table model 50 | retained heap ~ 0 MB
+LAST PAGE   :     6.08 ms  (OFFSET 99900)

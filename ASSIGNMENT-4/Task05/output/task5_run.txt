@@ -1,0 +1,9 @@
+250.00 USD = 20800.00 INR
+1_frame_listener           after Enter with 'abc' -> label: Invalid amount
+windowClosing: disposing Converter1_FrameListener
+2_named_inner              after Enter with 'abc' -> label: Invalid amount
+windowClosing: disposing Converter2_NamedInner
+3_anonymous                after Enter with 'abc' -> label: Invalid amount
+windowClosing: disposing Converter3_Anonymous
+4_lambda                   after Enter with 'abc' -> label: Invalid amount
+windowClosing: disposing Converter4_Lambda

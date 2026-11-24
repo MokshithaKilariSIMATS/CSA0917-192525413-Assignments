@@ -1,0 +1,7 @@
+NORMAL    -> Registered 192525413 for Hackathon 2026.
+INVALID   -> INVALID: Student ID must be exactly 9 digits.
+INVALID   -> INVALID: Enter a valid e-mail address.
+DUPLICATE -> DUPLICATE: Student 192525413 is already registered for Hackathon 2026.
+OTHER EVT -> Registered 192525413 for Cultural Night.
+FILTER    -> Page 1 of 1  (3 rows) | rows in table: 3
+EXPORT    -> Exported 3 rows to registrations_export.csv
