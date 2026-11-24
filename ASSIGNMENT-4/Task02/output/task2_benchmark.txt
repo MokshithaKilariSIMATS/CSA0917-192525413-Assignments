@@ -1,0 +1,4 @@
+Simulated DB latency per query : 5 ms
+Department changes performed   : 200
+DB on every change : 1035 ms  (200 DB calls)
+Load once into Map :   20 ms  (4 DB calls)

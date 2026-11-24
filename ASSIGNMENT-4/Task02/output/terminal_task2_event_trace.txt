@@ -1,0 +1,24 @@
+user@ubuntu:~/CSA09-192525413-Assignment4/Task02$ javac -d bin src/*.java
+user@ubuntu:~/CSA09-192525413-Assignment4/Task02$ (cd src && xvfb-run -a -s "-screen 0 800x450x24" java -cp ../bin TraceDriver)
+== 1. Create window
+  -> constructor: building components
+== 2. setVisible(true)
+  -> windowOpened
+  -> windowActivated
+== 3. Change department to Paediatrics
+  -> ItemEvent(SELECTED) on cmbDept -> refreshDoctors()
+== 4. Book with invalid phone
+  -> ActionEvent on btnBook -> onBook()
+== 5. Book valid appointment
+  -> ActionEvent on btnBook -> onBook()
+== 6. Book same doctor/slot again (conflict)
+  -> ActionEvent on btnBook -> onBook()
+== 7. Close window (WINDOW_CLOSING event)
+  -> windowClosing -> dispose()
+  -> windowDeactivated
+  -> windowClosed
+user@ubuntu:~/CSA09-192525413-Assignment4/Task02$ java -cp bin CacheBenchmark
+Simulated DB latency per query : 5 ms
+Department changes performed   : 200
+DB on every change : 1033 ms  (200 DB calls)
+Load once into Map :   21 ms  (4 DB calls)

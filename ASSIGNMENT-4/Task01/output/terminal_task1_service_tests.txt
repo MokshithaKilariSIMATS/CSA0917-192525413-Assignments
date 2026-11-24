@@ -1,0 +1,11 @@
+user@ubuntu:~/CSA09-192525413-Assignment4/Task01$ javac -d bin src/*.java
+user@ubuntu:~/CSA09-192525413-Assignment4/Task01$ java -cp bin FeeServiceTest
+[PASS] valid payment                -> Receipt #5001 | Student 192525413 | Paid Rs.10000.00 | 24-11-2026 08:38:10
+[PASS] non-numeric amount           -> Amount must be a number.
+[PASS] negative amount              -> Amount must be greater than zero.
+[PASS] short student id             -> Student ID must be exactly 9 digits.
+[PASS] SQL-injection style id       -> Student ID must be exactly 9 digits.
+[PASS] unknown student              -> Unknown student ID: 999999999
+[PASS] amount above due             -> Amount exceeds outstanding fee of Rs.20000.00.
+[PASS] pay remaining exactly        -> Receipt #5002 | Student 192525001 | Paid Rs.20000.00 | 24-11-2026 08:38:10
+Summary: 8 passed, 0 failed

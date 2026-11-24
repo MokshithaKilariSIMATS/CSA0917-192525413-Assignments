@@ -1,0 +1,17 @@
+== 1. Create window
+  -> constructor: building components
+== 2. setVisible(true)
+  -> windowOpened
+  -> windowActivated
+== 3. Change department to Paediatrics
+  -> ItemEvent(SELECTED) on cmbDept -> refreshDoctors()
+== 4. Book with invalid phone
+  -> ActionEvent on btnBook -> onBook()
+== 5. Book valid appointment
+  -> ActionEvent on btnBook -> onBook()
+== 6. Book same doctor/slot again (conflict)
+  -> ActionEvent on btnBook -> onBook()
+== 7. Close window (WINDOW_CLOSING event)
+  -> windowClosing -> dispose()
+  -> windowDeactivated
+  -> windowClosed

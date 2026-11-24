@@ -1,0 +1,5 @@
+BrokenDrawingPad : 4 real mouse clicks sent, label shows -> Clicks: 0
+HalfFixedPad     : before minimise, label -> Clicks: 4
+HalfFixedPad     : after  restore , label -> Clicks: 4  (dots lost: repaint cleared them)
+DrawingPad       : before minimise, label -> Clicks: 4
+DrawingPad       : after  restore , dots still drawn (stored in List<Point>)

@@ -1,0 +1,15 @@
+user@ubuntu:~/CSA09-192525413-Assignment4/Task04$ cat demo/OverrideDemo.java
+import java.awt.event.*;
+
+/** Compile-time demonstration: @Override exposes the misspelt listener method. */
+public class OverrideDemo extends MouseAdapter {
+    @Override
+    public void mouseClick(MouseEvent e) {     // should be mouseClicked
+        System.out.println("never reached");
+    }
+}
+user@ubuntu:~/CSA09-192525413-Assignment4/Task04$ (cd demo && javac OverrideDemo.java)
+OverrideDemo.java:5: error: method does not override or implement a method from a supertype
+    @Override
+    ^
+1 error
