@@ -1,0 +1,10 @@
+=== Task B3 : insertion time (ms) on Apache Derby 10.16.1.1 - (1901046) ===
+Method                                1,000 rows   10,000 rows  100,000 rows
+Statement (auto-commit)                  1,463.0      11,301.4     115,479.1
+PreparedStatement (auto-commit)            134.6       1,447.9      13,303.6
+Batch 1000 (auto-commit)                   170.4       1,407.1      13,493.1
+Batch 1000 (ONE transaction)                14.5         108.0         994.7
+Multi-row INSERT x100 (txn)                 62.7         172.2       1,283.5
+
+Single-pass counter case: one PreparedStatement INSERT (auto-commit) =
+   0.166 ms per pass (mean of 200 individual commits)

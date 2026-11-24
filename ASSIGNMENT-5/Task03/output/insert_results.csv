@@ -1,0 +1,16 @@
+rows,method,timeMs
+1000,Statement (auto-commit),1463.0
+10000,Statement (auto-commit),11301.4
+100000,Statement (auto-commit),115479.1
+1000,PreparedStatement (auto-commit),134.6
+10000,PreparedStatement (auto-commit),1447.9
+100000,PreparedStatement (auto-commit),13303.6
+1000,Batch 1000 (auto-commit),170.4
+10000,Batch 1000 (auto-commit),1407.1
+100000,Batch 1000 (auto-commit),13493.1
+1000,Batch 1000 (ONE transaction),14.5
+10000,Batch 1000 (ONE transaction),108.0
+100000,Batch 1000 (ONE transaction),994.7
+1000,Multi-row INSERT x100 (txn),62.7
+10000,Multi-row INSERT x100 (txn),172.2
+100000,Multi-row INSERT x100 (txn),1283.5

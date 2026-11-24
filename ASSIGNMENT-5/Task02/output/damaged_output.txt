@@ -1,0 +1,21 @@
+=== Task B2 : damaged bus-pass data ===
+Input file: Task02/data/passes_damaged.txt  (10 lines)
+
+Line Verdict   Reason                             Content
+1    VALID     -                                  P2001,22CS201,Asha Rao,12,Main Gate,2027-03-31,1500.00
+2    DAMAGED   wrong field count (6, expected 7)  P2002,22CS202,Ravi Kumar,12,Library,2027-03-31
+3    DAMAGED   non-numeric amount '12x0'          P2003,22CS203,Meena S,15,Station Road,2027-03-31,12x0
+4    DAMAGED   wrong field count (8, expected 7)  P2004,22CS204,Dev Anand,12,Hostel Block,2027-03-31,1500.00,EXTRA
+5    DAMAGED   empty line                         <empty line>
+6    DAMAGED   non-numeric route 'abc'            P2005,22CS205,Priya N,abc,Market,2027-03-31,1500.00
+7    DAMAGED   bad validity date '31-03-2027'     P2006,22CS206,Kiran P,12,Bus Stand,31-03-2027,1500.00
+8    DAMAGED   negative amount '-1500.00'         P2007,22CS207,Leena M,15,Gate 2,2027-03-31,-1500.00
+9    DAMAGED   bad pass id 'X2008'                X2008,22CS208,Bad Id,15,Gate 2,2027-03-31,1500.00
+10   VALID     -                                  P2009,22CS209,Sam T,15,Gate 3,2027-03-31,1800.00
+
+Summary: valid = 2, damaged = 8
+
+Search must survive the damage:
+  find(P2001) -> found   (before the damage)
+  find(P2009) -> found   (after ALL damaged lines; skipped 8 damaged lines)
+  find(P2002) -> null   (record itself is damaged)

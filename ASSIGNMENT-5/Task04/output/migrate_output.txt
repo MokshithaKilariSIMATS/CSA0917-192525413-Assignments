@@ -1,0 +1,21 @@
+=== Task B4 : migration  Task04/data/legacy_passes.txt  ->  database table bus_pass ===
+Lines read      : 8000
+Valid records   : 7995
+Rejected records: 5
+Rejected-record report (Task04/output/rejected_records.txt):
+   line 1000 | wrong field count (4, expected 7) | P301000,22CS01000,Missing Fields,5
+   line 2500 | non-numeric amount '15OO.00' | P302500,22CS02500,Bad Amount,5,Stop 3,2027-03-31,15OO.00
+   line 4000 | empty line | <empty>
+   line 5500 | duplicate pass id P300001 | P300001,22CS99999,Duplicate Id,7,Stop 9,2027-03-31,1500.00
+   line 7000 | bad validity date '31/03/2027' | P307000,22CS07000,Bad Date,5,Stop 3,31/03/2027,1500.00
+
+Loaded in 8 batches inside ONE transaction, committed. (401.6 ms)
+Verification    : rows in table = 7995   valid records read = 7995   -> MATCH
+
+-- DatabaseMetaData
+   Database product : Apache Derby 10.16.1.1 - (1901046)
+   JDBC driver      : Apache Derby Embedded JDBC Driver 10.16.1.1 - (1901046)
+   JDBC version     : 4.2
+   URL              : jdbc:derby:testdb
+   Tables (user)    :
+      APP.BUS_PASS

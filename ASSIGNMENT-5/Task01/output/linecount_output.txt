@@ -1,0 +1,29 @@
+=== Tasks A2/B1 : line-counting benchmark (median of 3 runs; unbuffered 50 MB = 1 run) ===
+SizeMB Method                            Lines   read() calls   Time(ms)
+1      unbuffered FileInputStream       32,768      1,048,577      252.1
+1      BufferedInputStream(8KB)         32,768            129       16.9
+1      byte[] 8 KB                      32,768            129        2.0
+1      byte[] 64 KB                     32,768             17        2.0
+1      BufferedReader.readLine          32,768             -1       14.6
+1      Files.readAllLines               32,768            n/a        6.5   retained heap = 2.4 MB
+1      Files.lines().count()            32,768            n/a       11.8   retained heap = 0.0 MB
+       (file size 1048576 bytes; predicted unbuffered read() calls = bytes + 1 = 1,048,577)
+
+10     unbuffered FileInputStream      327,680     10,485,761     2237.3
+10     BufferedInputStream(8KB)        327,680          1,281      151.9
+10     byte[] 8 KB                     327,680          1,281        3.1
+10     byte[] 64 KB                    327,680            161        2.6
+10     BufferedReader.readLine         327,680             -1       16.6
+10     Files.readAllLines              327,680            n/a       52.5   retained heap = 24.6 MB
+10     Files.lines().count()           327,680            n/a       20.6   retained heap = 0.0 MB
+       (file size 10485760 bytes; predicted unbuffered read() calls = bytes + 1 = 10,485,761)
+
+50     unbuffered FileInputStream    1,638,400     52,428,801    11534.8
+50     BufferedInputStream(8KB)      1,638,400          6,401      745.8
+50     byte[] 8 KB                   1,638,400          6,401       21.6
+50     byte[] 64 KB                  1,638,400            801       14.6
+50     BufferedReader.readLine       1,638,400             -1       57.3
+50     Files.readAllLines            1,638,400            n/a      215.7   retained heap = 119.6 MB
+50     Files.lines().count()         1,638,400            n/a       67.5   retained heap = 0.0 MB
+       (file size 52428800 bytes; predicted unbuffered read() calls = bytes + 1 = 52,428,801)
+

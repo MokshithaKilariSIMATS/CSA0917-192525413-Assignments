@@ -1,0 +1,28 @@
+=== Task B1 : PassStore functional tests ===
+Input file Task01/data/passes_sample.txt:
+   | P1001,22CS101,Asha Rao,12,Main Gate,2027-03-31,1500.00
+   | P1002,22CS102,Ravi Kumar,12,Library
+   | P1003,22CS103,Meena S,15,Station Road,2027-03-31,1800.00
+   | <empty line>
+   | P1007,22CS107,Dev Anand,12,Hostel Block,2027-03-31,1500.00
+   | P1008,22CS108,Priya N,15,Market,2027-03-31,abc
+
+TEST 1  normal case      find("P1003")
+   -> BusPass[passId=P1003, regNo=22CS103, name=Meena S, route=15, stop=Station Road, validity=2027-03-31, amount=1800.00]   [damaged lines skipped: 1]
+TEST 2  damaged line     find("P1002")  (line has only 5 fields)
+   -> null   [damaged lines skipped: 3]
+TEST 3  absent id        find("P9999")
+   -> null
+TEST 4  list(route 12)
+   -> P1001 Asha Rao stop=Main Gate
+   -> P1007 Dev Anand stop=Hostel Block
+   [damaged lines skipped: 3]
+TEST 5  missing file     find("P1001") on data/does_not_exist.txt
+  [store] file not found: Task01/data/does_not_exist.txt -> treated as empty store
+   -> null
+TEST 6  add() then find()
+   -> BusPass[passId=P1004, regNo=22CS104, name=Kiran P, route=12, stop=Bus Stand, validity=2027-03-31, amount=1500.00]
+TEST 7  torn write (power failure leaves last line without newline), then add()
+   find(P1005) torn record -> null   (damaged lines skipped: 4)
+   find(P1006) new record  -> BusPass[passId=P1006, regNo=22CS106, name=Leena M, route=15, stop=Station Road, validity=2027-03-31, amount=1800.00]
+   (the torn line was isolated, so the new record was NOT glued onto it)

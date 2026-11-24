@@ -1,0 +1,15 @@
+=== Task B4 : scale test, 800,000 passes, 12 campuses ===
+JVM max heap = 5120 MB
+
+[TEXT]  write 800,000 records            :     1000.2 ms   file = 48.3 MB
+[TEXT]  scan find(), mean of 5          :      228.3 ms per search
+[TEXT]  200 searches by scanning (proj.)  :       45.7 s   (= 200 x 228.3 ms)
+[TEXT]  HashMap load                    :     1167.2 ms   heap = 275 MB   then 200 lookups = 0.32 ms
+
+[SERIAL] write 12 files (one per campus):     3565.6 ms   total = 96.6 MB
+[SERIAL] cross-campus query 'route 12'    :     1494.1 ms   (must load all 12 files)  hits = 32,000
+
+[DB]     batch(1000) + 1 transaction load  :     8713.0 ms   rows = 800,000
+[DB]     200 primary-key lookups            :      23.84 ms total = 0.119 ms per search
+[DB]     'route 12' without index          :      216.4 ms   hits = 32,000
+[DB]     'route 12' with index             :       20.3 ms   hits = 32,000

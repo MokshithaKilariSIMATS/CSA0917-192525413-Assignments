@@ -1,0 +1,30 @@
+=== Task B2 : SQL-injection experiment (local test DB, users: admin / student) ===
+
+Case                             Expected  UNSAFE    SAFE(PS) 
+
+[1 valid credentials]  user="admin"  pass="Admin@123"
+      SQL sent : SELECT username FROM users WHERE username = 'admin' AND password = 'Admin@123'
+      UNSAFE -> ACCEPTED   |   PreparedStatement -> ACCEPTED
+
+[2 wrong password]  user="admin"  pass="wrong"
+      SQL sent : SELECT username FROM users WHERE username = 'admin' AND password = 'wrong'
+      UNSAFE -> rejected   |   PreparedStatement -> rejected
+
+[3 comment-out attack]  user="admin' --"  pass="anything"
+      SQL sent : SELECT username FROM users WHERE username = 'admin' --' AND password = 'anything'
+      UNSAFE -> ACCEPTED   |   PreparedStatement -> rejected
+
+[4 always-true attack (user)]  user="' OR '1'='1"  pass="' OR '1'='1"
+      SQL sent : SELECT username FROM users WHERE username = '' OR '1'='1' AND password = '' OR '1'='1'
+      UNSAFE -> ACCEPTED   |   PreparedStatement -> rejected
+
+[5 always-true attack (pass)]  user="admin"  pass="x' OR 'a'='a"
+      SQL sent : SELECT username FROM users WHERE username = 'admin' AND password = 'x' OR 'a'='a'
+      UNSAFE -> ACCEPTED   |   PreparedStatement -> rejected
+
+Case                             Expected  UNSAFE    SAFE(PS) 
+1 valid credentials              ACCEPT    ACCEPT    ACCEPT   
+2 wrong password                 REJECT    reject    reject   
+3 comment-out attack             REJECT    ACCEPT    reject     <-- BYPASS
+4 always-true attack (user)      REJECT    ACCEPT    reject     <-- BYPASS
+5 always-true attack (pass)      REJECT    ACCEPT    reject     <-- BYPASS

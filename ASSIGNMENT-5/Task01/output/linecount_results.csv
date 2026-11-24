@@ -1,0 +1,25 @@
+sizeMB,method,lines,readCalls,timeMs
+1,unbuffered FileInputStream,32768,1048577,252.1
+1,BufferedInputStream(8KB),32768,129,16.9
+1,byte[] 8 KB,32768,129,2.0
+1,byte[] 64 KB,32768,17,2.0
+1,BufferedReader.readLine,32768,-1,14.6
+1,Files.readAllLines,32768,-1,6.5
+1,readAllLines_heapMB,32768,-1,2.4
+1,Files.lines.count,32768,-1,11.8
+10,unbuffered FileInputStream,327680,10485761,2237.3
+10,BufferedInputStream(8KB),327680,1281,151.9
+10,byte[] 8 KB,327680,1281,3.1
+10,byte[] 64 KB,327680,161,2.6
+10,BufferedReader.readLine,327680,-1,16.6
+10,Files.readAllLines,327680,-1,52.5
+10,readAllLines_heapMB,327680,-1,24.6
+10,Files.lines.count,327680,-1,20.6
+50,unbuffered FileInputStream,1638400,52428801,11534.8
+50,BufferedInputStream(8KB),1638400,6401,745.8
+50,byte[] 8 KB,1638400,6401,21.6
+50,byte[] 64 KB,1638400,801,14.6
+50,BufferedReader.readLine,1638400,-1,57.3
+50,Files.readAllLines,1638400,-1,215.7
+50,readAllLines_heapMB,1638400,-1,119.6
+50,Files.lines.count,1638400,-1,67.5

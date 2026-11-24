@@ -1,0 +1,33 @@
+=== Task B3 : insert 10 records with three techniques ===
+Database : Apache Derby 10.16.1.1 - (1901046)
+Rows inserted: Statement=10, PreparedStatement=10, Batch=10 -> table now holds 30
+-- SELECT * FROM bus_pass  (first 12 of 30 rows)
+   P2001 | 22CS02001 | Student 2001 | route  2 | Stop 1   | 2027-03-31 | 1500.00
+   P2002 | 22CS02002 | Student 2002 | route  3 | Stop 2   | 2027-03-31 | 1500.00
+   P2003 | 22CS02003 | Student 2003 | route  4 | Stop 3   | 2027-03-31 | 1500.00
+   P2004 | 22CS02004 | Student 2004 | route  5 | Stop 4   | 2027-03-31 | 1500.00
+   P2005 | 22CS02005 | Student 2005 | route  6 | Stop 5   | 2027-03-31 | 1500.00
+   P2006 | 22CS02006 | Student 2006 | route  7 | Stop 6   | 2027-03-31 | 1500.00
+   P2007 | 22CS02007 | Student 2007 | route  8 | Stop 7   | 2027-03-31 | 1500.00
+   P2008 | 22CS02008 | Student 2008 | route  9 | Stop 8   | 2027-03-31 | 1500.00
+   P2009 | 22CS02009 | Student 2009 | route 10 | Stop 9   | 2027-03-31 | 1500.00
+   P2010 | 22CS02010 | Student 2010 | route 11 | Stop 10  | 2027-03-31 | 1500.00
+   P2101 | 22CS02101 | Student 2101 | route  2 | Stop 21  | 2027-03-31 | 1500.00
+   P2102 | 22CS02102 | Student 2102 | route  3 | Stop 22  | 2027-03-31 | 1500.00
+   ... (30 rows in total)
+
+-- ResultSetMetaData of SELECT * FROM bus_pass
+   #   column         type         size  scale nullable
+   1   PASS_ID        VARCHAR      10    0     NO      
+   2   REG_NO         VARCHAR      15    0     NO      
+   3   NAME           VARCHAR      60    0     NO      
+   4   ROUTE_NO       INTEGER      10    0     NO      
+   5   BOARDING_STOP  VARCHAR      60    0     NO      
+   6   VALIDITY_DATE  DATE         10    0     NO      
+   7   AMOUNT         DECIMAL      8     2     NO      
+
+=== Transaction experiment : invalid amount halfway through 2,000 records ===
+[auto-commit batches] failure at record #1001 : The check constraint 'SQL0000000084-24fa0130-01a1-f2a6-45ef-000005ddb510' was violated while performing an INS...
+   rows left in table after failure = 1000   (partial load - inconsistent)
+[single transaction ] failure at record #1001 : The check constraint 'SQL0000000086-489a813c-01a1-f2a6-45ef-000005ddb510' was violated while performing an INS...
+   rows left in table after failure = 0   (rolled back - all or nothing)

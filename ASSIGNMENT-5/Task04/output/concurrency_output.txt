@@ -1,0 +1,15 @@
+=== Task B4 : concurrent pass-number counters (8 threads x 200 = 1600 passes) ===
+
+[Text counter file, no locking]
+   passes issued        : 1600
+   distinct pass numbers: 92
+   duplicate numbers    : 14
+   unreadable (torn) reads: 1494
+   final counter value  : 92   (should be 1600)
+
+[Database counter row, transaction + row lock]  (1087 ms)
+   passes issued        : 1600
+   distinct pass numbers: 1600
+   duplicate numbers    : 0
+   unexpected errors    : 0
+   final counter value  : 1600   (should be 1600, max issued 1600)
